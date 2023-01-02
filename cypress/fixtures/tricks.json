@@ -1,14 +1,14 @@
 [
   {
       "stance": "regular",
-      "name": "720",
+      "name": "720p",
       "obstacle": "flat ground",
       "tutorial": "https://www.youtube.com/watch?v=XGw3YkQmNig",
       "id": 1
   },
   {
       "stance": "switch",
-      "name": "1080",
+      "name": "1080p",
       "obstacle": "stairs",
       "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA",
       "id": 2

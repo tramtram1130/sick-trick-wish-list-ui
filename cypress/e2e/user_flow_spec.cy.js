@@ -19,10 +19,10 @@ describe('User Flow', () => {
   it('Should see three existing tricks displayed', () => {
     cy.get('.card')
       .should('have.length', 3)
-      .get('.card').eq(0).should('contain', 'regular 720')
+      .get('.card').eq(0).should('contain', 'regular 720p')
       .get('.card').eq(0).should('contain', 'Obstacle: flat ground')
       .get('.card').eq(0).should('contain', 'https://www.youtube.com/watch?v=XGw3YkQmNig')
-      .get('.card').eq(1).should('contain', 'switch 1080')
+      .get('.card').eq(1).should('contain', 'switch 1080p')
       .get('.card').eq(1).should('contain', 'Obstacle: stairs')
       .get('.card').eq(1).should('contain', 'https://www.youtube.com/watch?v=9N9swrZU1HA')
       .get('.card').eq(2).should('contain', 'regular 4k')

@@ -1,4 +1,8 @@
 .trick-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-self: center;
+  justify-items: center;
+  width: 90%;
+  padding-top: 5vh;
 }

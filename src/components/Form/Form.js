@@ -34,7 +34,7 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <select name="stance" onChange={this.handleChange}>
+        <select defaultValue={this.state.stance} name="stance" onChange={this.handleChange}>
           <option value="" disabled selected>Choose your Stance</option>
           <option value="switch">Switch</option>
           <option value="regular">Regular</option>
@@ -46,7 +46,7 @@ class Form extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <select name="obstacle" onChange={this.handleChange}>
+        <select defaultValue={this.state.obstacle} name="obstacle" onChange={this.handleChange}>
           <option value="" disabled selected>Choose your Obstacle</option>
           <option value="flat ground">Flat Ground</option>
           <option value="ledge">Ledge</option>

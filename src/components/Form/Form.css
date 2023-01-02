@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  width: 70%;
+  gap: 5px;
+  align-self: center;
+  justify-content: center;
+  padding-top: 7vh;
+}
+
+select, input, button {
+  padding: 5px;
+  margin: 10px;
+  font-size: 2vh;
+  font-weight: bolder;
+  border-radius: 5px;
+  border: white;
+}

@@ -1,5 +1,7 @@
-import { Component } from 'react';
-import './App.css';
+import { Component } from 'react'
+import './App.css'
+import Trick from '../Trick/Trick'
+import Form from '../Form/Form'
 
 class App extends Component {
   constructor() {
@@ -15,10 +17,16 @@ class App extends Component {
       .then(data => this.setState({ tricks: data }))
   }
 
+  addTrick = (newTrick) => {
+    this.setState({ tricks: [...this.state.tricks, newTrick] })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
+        <Form addTrick={this.addTrick} />
+        <Trick tricks={this.state.tricks}/>
       </div>
     );
   }

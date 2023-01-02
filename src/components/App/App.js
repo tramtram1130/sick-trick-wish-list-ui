@@ -15,6 +15,7 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/tricks')
       .then(data => data.json())
       .then(data => this.setState({ tricks: data }))
+      .catch(err => console.log(err))
   }
 
   addTrick = (newTrick) => {
@@ -24,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Sick Trick Wish List</h1>
+        <h1 className="title">Sick Trick Wish List</h1>
         <Form addTrick={this.addTrick} />
         <Trick tricks={this.state.tricks}/>
       </div>

@@ -1,0 +1,51 @@
+describe('User Flow', () => {
+  beforeEach(() => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {
+      statusCode: 201,
+      fixture: 'tricks'
+    })
+    cy.visit('http://localhost:3000/')
+  })
+  it('Should see a title displayed', () => {
+    cy.get('.title')
+      .should('contain', 'Sick Trick Wish List')
+  })
+  it('Should see a form displayed', () => {
+    cy.get('form')
+      .should('have.descendants', 'input')
+      .should('have.descendants', 'select')
+      .should('have.descendants', 'button')
+  })
+  it('Should see three existing tricks displayed', () => {
+    cy.get('.card')
+      .should('have.length', 3)
+      .get('.card').eq(0).should('contain', 'regular 720')
+      .get('.card').eq(0).should('contain', 'Obstacle: flat ground')
+      .get('.card').eq(0).should('contain', 'https://www.youtube.com/watch?v=XGw3YkQmNig')
+      .get('.card').eq(1).should('contain', 'switch 1080')
+      .get('.card').eq(1).should('contain', 'Obstacle: stairs')
+      .get('.card').eq(1).should('contain', 'https://www.youtube.com/watch?v=9N9swrZU1HA')
+      .get('.card').eq(2).should('contain', 'regular 4k')
+      .get('.card').eq(2).should('contain', 'Obstacle: ledge')
+      .get('.card').eq(2).should('contain', 'https://www.youtube.com/watch?v=9N9swrZU1HA')
+  })
+  it('Should be able to select the stance, trick, obstacle, and tutorial inputs and fill them with corresponding values and submit it to display the new trick', () => {
+    cy.get('select[name="stance"]')
+      .select('regular')
+      .should('have.value', 'regular')
+      .get('input[name="name"]')
+      .type('ollie')
+      .should('have.value', 'ollie')
+      .get('select[name="obstacle"]')
+      .select('flat ground')
+      .should('have.value', 'flat ground')
+      .get('input[name="tutorial"]')
+      .type('Google.com')
+      .get('button').click()
+      .get('.card').should('have.length', 4)
+      .get('.card').eq(3)
+        .should('contain', 'regular ollie')
+        .should('contain', 'Obstacle: flat ground')
+        .should('contain', 'Google.com')
+  })
+})
